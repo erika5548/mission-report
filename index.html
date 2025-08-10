@@ -363,7 +363,6 @@
                 otherFeelingsNote.classList.remove('hidden');
             } else {
                 otherFeelingsNote.classList.add('hidden');
-                otherFeelingsNote.value = '';
             }
 
             function saveTasks(type, tasksToSave) {
@@ -375,7 +374,7 @@
             }
             
             function saveFeelings() {
-                localStorage.setItem('todays-feelings', todaysFeelingsSelect.value);
+                localStorage.setItem('todaysFeelings', todaysFeelingsSelect.value);
                 localStorage.setItem('otherFeelings', otherFeelingsNote.value);
             }
 
@@ -642,6 +641,7 @@
                 const otherFeelings = otherFeelingsNote.value;
 
                 const dataToSend = {
+                    api_key: API_KEY,
                     date: currentDateElement.textContent,
                     daily_missions: dailyTasks,
                     summer_vacation_missions: summerTasks,
